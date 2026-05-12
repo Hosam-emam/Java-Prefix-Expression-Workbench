@@ -9,34 +9,39 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Enter 1 for manual input, 2 to use automated test_cases");
-
         Scanner scanner = new Scanner(System.in);
+        while(true){
+            System.out.print("Enter 1 for manual input, 2 to use automated Test Cases, else exit: ");
+            int choice = Integer.parseInt(scanner.nextLine());
+            if (choice == 2) {
+                String[] testCases = {
+                        // test cases
+                        "(+ 3 4)",
+                        "(* (+ 1 2) 5)",
+                        "(- (* 4 5) (+ 2 3))",
+                        "(let x 10)",
+                        "(+ x 3)",
+                        // Error cases
+                        "(+ 3",
+                        "(* 2)",
+                        "(@ 1 2)"
+                };
 
-        int choice = Integer.parseInt(scanner.nextLine());
-        String input2 = scanner.nextLine();
-        if (choice == 2) {
-            String[] testCases = {
-                    // test cases
-                    "(+ 3 4)",
-                    "(* (+ 1 2) 5)",
-                    "(- (* 4 5) (+ 2 3))",
-                    "(let x 10)",
-                    "(+ x 3)",
-                    // Error cases
-                    "(+ 3",
-                    "(* 2)",
-                    "(@ 1 2)"
-            };
 
-
-            for (String input : testCases) {
-                run(input);
+                for (String input : testCases) {
+                    run(input);
+                }
+            }
+            else if (choice == 1){
+                System.out.print("Enter the expression: ");
+                String input2 = scanner.nextLine();
+                run(input2);
+            }
+            else {
+                break;
             }
         }
-        else {
-            run(input2);
-        }
+        System.out.println("Have a good day!");
     }
 
         public static void run (String input){
