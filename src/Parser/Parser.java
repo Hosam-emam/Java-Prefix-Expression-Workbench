@@ -23,7 +23,6 @@ public class Parser {
         return tokens.get(pos++);
     }
 
-    // بيتحقق إن الـ Token الحالي من النوع المطلوب ويستهلكه، لو لأ بيطلع خطأ
     private Token expect(Token.Type type) {
         Token t = peek();
         if (t.type != type) {
@@ -38,7 +37,6 @@ public class Parser {
 
     public ASTNode parse() {
         ASTNode node = parseExpression();
-        // بعد الـ parse لازم نكون وصلنا لنهاية الـ input
         expect(Token.Type.EOF);
         return node;
     }

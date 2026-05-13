@@ -2,7 +2,7 @@ package AST;
 
 public class LetExprNode extends ASTNode {
     public String varName;
-    public ASTNode value;    // القيمة
+    public ASTNode value;
 
     public LetExprNode(String varName, ASTNode value) {
         this.varName = varName;

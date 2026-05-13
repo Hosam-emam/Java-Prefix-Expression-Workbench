@@ -52,7 +52,6 @@ public class Lexer {
             }
         }
 
-        // إضافة علامة نهاية الـ input
         tokens.add(new Token(Token.Type.EOF, ""));
         return tokens;
     }
